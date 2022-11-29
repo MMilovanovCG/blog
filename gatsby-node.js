@@ -138,3 +138,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
   }
 };
+// This is to prevent an error being thrown when we have no blog posts with 'redirects' field
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type MarkdownRemarkFrontmatter implements Node {
+      redirects: String,
+      permalink: String,
+      thumbnail: File,
+      description: String,
+    }
+
+    type AuthorsJson implements Node {
+      blog: String,
+      github: String,
+      twitter: String,
+    }
+  `;
+  createTypes(typeDefs);
+};
