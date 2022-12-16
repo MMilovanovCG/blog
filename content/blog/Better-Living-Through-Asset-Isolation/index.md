@@ -36,6 +36,6 @@ The updated caching strategy was evaluated by analyzing the quality and performa
 
 After fingerprinting and re-hosting the static image assets in their application’s new cloud storage bucket, we ran the Lighthouse analysis again. The result was a performance score of 99. The Largest Contentful Paint required only .8 seconds, while the Time to Interactive had been reduced to a blistering .5 seconds. The results speak for themselves.
 
-<div style="max-width: 720px; margin: auto;"><img src="metrics_before.png" alt="post-SAM Lighthouse score" /></div>
+<div style="max-width: 720px; margin: auto;"><img src="metrics_after.png" alt="post-SAM Lighthouse score" /></div>
 
 While our front-end development and asset hosting strategies continue to evolve, there is no question that this new approach to static asset management has been an overwhelming success. To quote one of the front-end devs from the product team that owned this application, “everyone in the company should be using this tool.” With adoption increasing daily, we look forward to seeing the increasing performance benefits to our users.
