@@ -46,6 +46,17 @@ filename
 CDN
 dev
 webapp
+Fodera
+mach5
+microservice's
+themself
+onboarding
+CLI
+microservice
+golang
+postconditions
+namespaces
+kubectl
  - content/blog/Better-Living-Through-Asset-Isolation/index.md
 versioning
 pre-qualification
@@ -71,3 +82,7 @@ service-template
 Bazel
 learnings
 pre-requisites
+ - content/blog/How-CarGurus-is-supercharging-our-microservice-developer-experience/index.md
+1960s
+pre-deployment
+syntaxes
