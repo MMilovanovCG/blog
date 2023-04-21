@@ -1,18 +1,22 @@
 module.exports = {
   siteMetadata: {
-    title: `The CarGurus Engineering Blog`,
-    author: `CarGurus`,
-    description: `Welcome to Revved, the CarGurus Engineering Blog. Written by the team building the world's most trusted and transparent automotive marketplace.`,
-    siteUrl: process.env.NODE_ENV !== 'production' ? `http://localhost:8000` : `https://cargurus.dev`,
+    title: 'The CarGurus Engineering Blog',
+    author: 'CarGurus',
+    description: `From the team building the most visited automotive marketplace in the U.S.
+    We give people the power to reach their destination.`,
+    siteUrl:
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:8000'
+        : 'https://cargurus.dev',
     social: {
-      twitter: `CarGurus`,
+      twitter: 'CarGurus',
     },
   },
   plugins: [
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-netlify`,
-    `gatsby-plugin-less`,
-    `gatsby-plugin-react-svg`,
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-less',
+    'gatsby-plugin-react-svg',
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -26,40 +30,40 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
+        name: 'blog',
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`,
+        name: 'assets',
       },
     },
-    `gatsby-transformer-json`,
+    'gatsby-transformer-json',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/authors/authors.json`,
-        name: `authors`,
+        name: 'authors',
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-katex`,
+            resolve: 'gatsby-remark-katex',
             options: {
               // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-              strict: `ignore`
-            }
+              strict: 'ignore',
+            },
           },
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 769,
               withWebp: true,
@@ -67,27 +71,27 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: 'gatsby-remark-responsive-iframe',
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: `UA-4745999-21`,
+        trackingId: 'UA-4745999-21',
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
           {
@@ -103,17 +107,18 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
+            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map(edge =>
+                Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + (edge.node.frontmatter.permalink || edge.node.fields.slug),
-                  guid: site.siteMetadata.siteUrl + (edge.node.frontmatter.permalink || edge.node.fields.slug),
+                  url:
+                    site.siteMetadata.siteUrl +
+                    (edge.node.frontmatter.permalink || edge.node.fields.slug),
+                  guid:
+                    site.siteMetadata.siteUrl +
+                    (edge.node.frontmatter.permalink || edge.node.fields.slug),
                   custom_elements: [{ 'content:encoded': edge.node.html }],
-                });
-              });
-            },
+                })),
             query: `
               {
                 allMarkdownRemark(
@@ -140,36 +145,36 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Revved`,
-        short_name: `Revved`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#00a0dd`,
-        display: `minimal-ui`,
-        icon: `content/assets/favicon.ico`,
+        name: 'Revved',
+        short_name: 'Revved',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#00a0dd',
+        display: 'minimal-ui',
+        icon: 'content/assets/favicon.ico',
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
+      resolve: 'gatsby-plugin-offline',
       options: {
         runtimeCaching: [
           {
             // Use cacheFirst since these don't need to be revalidated (same RegExp
             // and same reason as above)
             urlPattern: /(\.js$|\.css$|static\/)/,
-            handler: `cacheFirst`,
+            handler: 'cacheFirst',
           },
           {
             // Add runtime caching of various other page resources
             urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
-            handler: `staleWhileRevalidate`,
+            handler: 'staleWhileRevalidate',
           },
           {
             // Google Fonts CSS (doesn't end in .css so we need to specify it)
             urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
-            handler: `staleWhileRevalidate`,
+            handler: 'staleWhileRevalidate',
           },
           {
             // don't use cache for trailing slash urls, or urls that end in .dev
@@ -179,12 +184,12 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        pathToConfigModule: 'src/utils/typography',
       },
-    }
+    },
   ],
 };

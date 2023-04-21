@@ -42,10 +42,11 @@ const Feed = ({ data, location, pageContext = {} }) => {
         keywords={['blog', 'gatsby', 'javascript', 'react']}
       />
       <header className={styles.headlineWrap}>
-        <h1>Welcome to Revved, the CarGurus Engineering Blog</h1>
+        <h1>Welcome to Revved, the CarGurus engineering blog</h1>
         <p>
-          Written by the team building the world's most trusted and transparent
-          automotive marketplace.
+          From the team building the most visited automotive marketplace in the
+          U.S. <br />
+          We give people the power to reach their destination.
         </p>
       </header>
       {renderFeed}
