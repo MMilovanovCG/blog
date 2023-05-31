@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import PostSummary from '../components/PostSummary';
 import Pagination from '../components/Pagination';
+import revvedSocial from '../../content/assets/social/revved.jpg';
 
 const Feed = ({ data, location, pageContext = {} }) => {
   const {
@@ -39,6 +40,7 @@ const Feed = ({ data, location, pageContext = {} }) => {
     <Layout location={location} title={siteTitle}>
       <SEO
         title="Revved"
+        images={[revvedSocial]}
         keywords={['blog', 'gatsby', 'javascript', 'react']}
       />
       <header className={styles.headlineWrap}>
