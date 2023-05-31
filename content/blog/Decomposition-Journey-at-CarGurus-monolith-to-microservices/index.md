@@ -1,5 +1,5 @@
 ---
-title: Decomposition Journey at CarGurus - monolith to microservices
+title: "Decomposition Journey at CarGurus: From Monolith to Microservices"
 date: "2023-02-27T09:25:20.333Z"
 author: "ffodera"
 tags:
